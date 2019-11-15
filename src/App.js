@@ -11,6 +11,7 @@ import ApiCalls from './ApiCalls/ApiCalls'
 class App extends Component {
   state = {
     loading: false,
+    error: false,
     searchString: '',
     selectValue: null,
     countryData: null,
@@ -29,7 +30,11 @@ class App extends Component {
     if(this.state.searchString.trim() !== '' && e.key === 'Enter') {
       this.setState({loading:true})
       this.apiCalls.searchByCountry(this.state.searchString).then(data => {
-        this.setState({loading:false, countryData: data})
+        if(data === 'Error') {
+          this.setState({error:true, loading:false})
+        } else {
+          this.setState({loading:false, countryData: data})
+        }
       })
     }
   }
@@ -37,7 +42,11 @@ class App extends Component {
   onSearchByCurrency = (e) => {
     this.setState({selectValue: e, loading:true}, () => {
       this.apiCalls.searchByCurrency(e.value).then(data => {
-        this.setState({loading:false, countryData: data})
+        if(data === 'Error') {
+          this.setState({error:true, loading:false})
+        } else {
+          this.setState({loading:false, countryData: data})
+        }
       })
     })
   }
@@ -45,14 +54,22 @@ class App extends Component {
   onSearchByRegion = (e) => {
     this.setState({loading: true, searchString: e.target.value})
     this.apiCalls.searchByRegion(e.target.value).then(data => {
-      this.setState({loading:false, countryData: data})
+      if(data === 'Error') {
+        this.setState({error:true, loading:false})
+      } else {
+        this.setState({loading:false, countryData: data})
+      }
     })
   }
 
   onSearchByLanguage = (e) => {
     this.setState({selectValue: e, loading:true}, () => {
       this.apiCalls.searchByLanguage(e.value).then(data => {
-        this.setState({loading:false, countryData: data})
+        if(data === 'Error') {
+          this.setState({error:true, loading:false})
+        } else {
+          this.setState({loading:false, countryData: data})
+        }
       })
     })
   }
@@ -83,16 +100,19 @@ class App extends Component {
             selectValue={this.state.selectValue}
             countryData={this.state.countryData}
           />
-          <div className='results-container'>
-          {!this.state.countryData ? null :
-             this.state.countryData.map((country, key) => 
-                <ResultBox 
-                    country={country}
-                    key={key}
-                    onFlagClick={(e) => this.onFlagClick(e)}
-                />
-            )}
-          </div>
+          {this.state.error ? 
+            <h2 className='error'>No results! Try a different search term ...</h2> :
+            <div className='results-container'>
+            {!this.state.countryData ? null :
+              this.state.countryData.map((country, key) => 
+                  <ResultBox 
+                      country={country}
+                      key={key}
+                      onFlagClick={(e) => this.onFlagClick(e)}
+                  />
+              )}
+            </div>
+          }
           <FlagModal 
             open={this.state.flagModal.showModal}
             close={()=>this.setState({flagModal:{showModal:false, flagData:null}})}

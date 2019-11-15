@@ -8,6 +8,9 @@ class ApiCalls {
       axios.get(`${this.apiUrl}/name/${searchString}`).then(response => {
         resolve(response.data)
       })
+      .catch(() => {
+        resolve('Error')
+      })
     })
   }
 
@@ -15,6 +18,9 @@ class ApiCalls {
     return new Promise((resolve) => {
       axios.get(`${this.apiUrl}/currency/${searchString}`).then(response => {
         resolve(response.data)
+      })
+      .catch(() => {
+        resolve('Error')
       })
     })
   }
@@ -24,6 +30,9 @@ class ApiCalls {
       axios.get(`${this.apiUrl}/region/${searchString}`).then(response => {
         resolve(response.data)
       })
+      .catch(() => {
+        resolve('Error')
+      })
     })
   }
 
@@ -31,6 +40,9 @@ class ApiCalls {
     return new Promise((resolve) => {
       axios.get(`${this.apiUrl}/lang/${searchString}`).then(response => {
         resolve(response.data)
+      })
+      .catch(() => {
+        resolve('Error')
       })
     })
   }
