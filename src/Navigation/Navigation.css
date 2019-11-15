@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    width: 50%;
+    margin: 10px 25%;
+}
+
+.search-by {
+    flex-basis: 40%;
+    color: #fff;
+}
+
+.nav-bar {
+    flex-basis: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link:link,
+.nav-link:visited {
+    text-decoration: none;
+    color: #fff;
+    padding-bottom: 5px;
+    border-bottom: solid 1px transparent;
+}
+
+.nav-link:hover,
+.nav-link.active{
+    border-bottom: solid 1px #fff;
+}

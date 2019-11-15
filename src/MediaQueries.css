@@ -1,0 +1,49 @@
+/* Small tablet to big tablet: from 768 to 1023px */
+@media screen and (max-width: 1023px){
+  body{ font-size: 16px !important; }
+  
+  .search-bar{
+    width: 80% !important;
+    margin: 0 10% !important;
+  }
+
+  .root{
+      width: 80% !important;
+      margin: 0 10% !important;
+  }
+  
+  .header{ 
+    width: 70% !important;
+    margin: 10px 15% !important;
+  }
+
+  .flag-container { width: 100px !important; }
+}
+
+/* Small phones to small tablets: from 481 to 767px */
+@media screen and (max-width: 767px){
+    body{ font-size: 15px !important;}
+
+    .title{ font-size: 400% !important; }
+
+    .search-bar{
+        width: 95% !important;
+        margin: 0 2.5% !important;
+    }
+
+    .root{
+        width: 95% !important;
+        margin: 0 2.5% !important;
+    }
+
+    .header{ 
+    width: 90% !important;
+    margin: 10px 5% !important;
+    }
+
+    .search-by{ flex-basis: 30% !important; }
+
+    .nav-bar{ flex-basis: 70% !important; }
+
+    .result-box{ flex-basis: 100% !important; }
+}

@@ -1,0 +1,9 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 65vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./rustic.jpg')
+}

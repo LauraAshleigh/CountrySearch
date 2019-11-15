@@ -1,0 +1,23 @@
+.loading-wheel-container {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%) ;
+    width: 100px;
+    height: 100px;
+    z-index: 9999;
+}
+
+.loading-wheel {
+    height: 100%;
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
