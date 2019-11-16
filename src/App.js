@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import './MediaQueries.css'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import globe from './globe.png'
 import Main from './Main/Main'
 import ResultBox from './ResultBox/ResultBox'
@@ -83,42 +83,47 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="App">
-          <div className='loading-wheel-container'>
-            <img className='loading-wheel' src={globe} alt='loading'
-              style={{display: this.state.loading ? 'block' : 'none'}}
-            />
-          </div>
-          <Main 
-            onUpdateSearchField={(e) => this.onUpdateSearchField(e)} 
-            onHandleSelectChange={this.onHandleSelectChange}
-            onSearchByCountry={(e) => this.onSearchByCountry(e)}
-            onSearchByCurrency={(e) => this.onSearchByCurrency(e)}
-            onSearchByRegion={(e) => this.onSearchByRegion(e)}
-            onSearchByLanguage={(e) => this.onSearchByLanguage(e)}
-            searchString={this.state.searchString}
-            selectValue={this.state.selectValue}
-            countryData={this.state.countryData}
-          />
-          {this.state.error ? 
-            <h2 className='error'>No results! Try a different search term ...</h2> :
-            <div className='results-container'>
-            {!this.state.countryData ? null :
-              this.state.countryData.map((country, key) => 
-                  <ResultBox 
-                      country={country}
-                      key={key}
-                      onFlagClick={(e) => this.onFlagClick(e)}
-                  />
-              )}
+        <Switch>
+          <Route exact to='/' render={() => (
+            <div className="App">
+              <div className='loading-wheel-container'>
+                <img className='loading-wheel' src={globe} alt='loading'
+                  style={{display: this.state.loading ? 'block' : 'none'}}
+                />
+              </div>
+              <Main 
+                onUpdateSearchField={(e) => this.onUpdateSearchField(e)} 
+                onHandleSelectChange={this.onHandleSelectChange}
+                onSearchByCountry={(e) => this.onSearchByCountry(e)}
+                onSearchByCurrency={(e) => this.onSearchByCurrency(e)}
+                onSearchByRegion={(e) => this.onSearchByRegion(e)}
+                onSearchByLanguage={(e) => this.onSearchByLanguage(e)}
+                searchString={this.state.searchString}
+                selectValue={this.state.selectValue}
+                countryData={this.state.countryData}
+              />
+              {this.state.error ? 
+                <h2 className='error'>No results! Try a different search term ...</h2> :
+                <div className='results-container'>
+                {!this.state.countryData ? null :
+                  this.state.countryData.map((country, key) => 
+                      <ResultBox 
+                          country={country}
+                          key={key}
+                          onFlagClick={(e) => this.onFlagClick(e)}
+                      />
+                  )}
+                </div>
+              }
+              <FlagModal 
+                open={this.state.flagModal.showModal}
+                close={()=>this.setState({flagModal:{showModal:false, flagData:null}})}
+                flagData={this.state.flagModal.flagData}
+              />
             </div>
-          }
-          <FlagModal 
-            open={this.state.flagModal.showModal}
-            close={()=>this.setState({flagModal:{showModal:false, flagData:null}})}
-            flagData={this.state.flagModal.flagData}
-          />
-        </div>
+          )}/>
+          <Route render={() => <Redirect to= '/' />} />
+        </Switch>
       </BrowserRouter>
     )
   }

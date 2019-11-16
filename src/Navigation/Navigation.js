@@ -3,6 +3,7 @@ import './Navigation.css'
 import { withRouter, NavLink, Redirect } from 'react-router-dom'
 
 const navigation = (props) => {
+  console.log(props)
   const redirect = props.location.pathname === '/' ? <Redirect to='/searchbycountry' /> : null
   
   return (
