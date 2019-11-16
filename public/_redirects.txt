@@ -1,4 +1,1 @@
-/searchbycountry    https://crazyforcountries.netlify.com   200
-/searchbycurrency    https://crazyforcountries.netlify.com   200
-/searchbylanguage    https://crazyforcountries.netlify.com   200
-/searchbyregion    https://crazyforcountries.netlify.com   200
+/*  /index.html 200
