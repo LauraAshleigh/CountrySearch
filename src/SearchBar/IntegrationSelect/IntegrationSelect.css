@@ -31,7 +31,8 @@
     right: 0;
 }
 
-.css-1hb7zxy-IndicatorsContainer { display: none !important; }
+.select-search-bar .MuiInputBase-input.MuiInput-input>div:nth-child(2){ display: none !important}
+
 .value-container>div { 
     margin: 0 !important;
     padding: 0 !important;
