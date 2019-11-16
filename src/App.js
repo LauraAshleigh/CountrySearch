@@ -101,9 +101,12 @@ class App extends Component {
             countryData={this.state.countryData}
           />
           {this.state.error ? 
-            <h2 className='error'>No results! Try a different search term ...</h2> :
+            <h2 className='user-message'>No results! Try a different search term ...</h2> 
+            :
             <div className='results-container'>
-            {!this.state.countryData ? null :
+            {!this.state.countryData ? 
+              <h2 className='user-message'>Start typing in the search bar to learn more about countries!</h2> 
+              :
               this.state.countryData.map((country, key) => 
                   <ResultBox 
                       country={country}
