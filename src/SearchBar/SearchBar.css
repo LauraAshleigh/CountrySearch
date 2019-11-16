@@ -1,26 +1,31 @@
 .search-bar-container {
-    display: flex;
-    justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .search-bar {
-    width: 60%;
-    margin: 0 20%;
-    color: rgba(0, 0, 0, 0.8);
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  width: 60%;
+  margin: 0 20%;
+  color: rgba(0, 0, 0, 0.8);
+  background-color: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
 }
 
 .search-bar .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: #22303d !important;
+  border-color: #22303d !important;
 }
 
 .search-icon.MuiSvgIcon-root {
-    fill: #22303d !important;
+  fill: #22303d !important;
 }
 
 .select .MuiInputBase-input {
-    color: rgba(0, 0, 0, 0.5) !important;
-    padding: 18.5px 14px !important;
+  color: rgba(0, 0, 0, 0.5) !important;
+  padding: 18.5px 14px !important;
 }

@@ -1,16 +1,16 @@
 .title, .sub-title {
-    color: #fff;
-    font-weight: 300;
-    text-align: center;
+  color: #fff;
+  font-weight: 300;
+  text-align: center;
 }
 
 .title {
-    font-size: 400%;
-    margin-top: 40px;
-    margin-bottom: 10px;
+  font-size: 400%;
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
 
 .sub-title {
-    font-size: 150%;
-    margin-bottom: 30px;
+  font-size: 150%;
+  margin-bottom: 30px;
 }
