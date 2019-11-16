@@ -81,6 +81,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(window.location.pathname)
     const redirect = window.location.pathname !== '/' ? <Redirect to='/' /> : null
     return (
       <BrowserRouter>
