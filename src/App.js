@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import './MediaQueries.css'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Redirect } from 'react-router-dom'
 import globe from './globe.png'
 import Main from './Main/Main'
 import ResultBox from './ResultBox/ResultBox'
@@ -81,8 +81,10 @@ class App extends Component {
   }
 
   render() {
+    const redirect = window.location.pathname !== '/' ? <Redirect to='/' /> : null
     return (
       <BrowserRouter>
+        {redirect}
         <div className="App">
           <div className='loading-wheel-container'>
             <img className='loading-wheel' src={globe} alt='loading'
